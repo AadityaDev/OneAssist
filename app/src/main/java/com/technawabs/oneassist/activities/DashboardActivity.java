@@ -22,8 +22,8 @@ import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private List<Hotel> universities;
-    private List<Hotel> connections;
+    private List<Hotel> hotels;
+    private List<Hotel> hotelList;
     private HotelAdapter connectionAdapter;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
@@ -54,7 +54,7 @@ public class DashboardActivity extends AppCompatActivity {
 //        programFab1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Collections.sort(connections,Hotel.COURSECOMPARATOR);
+//                Collections.sort(hotelList,Hotel.COURSECOMPARATOR);
 //                menuRed.close(true);
 //            }
 //        });
@@ -66,7 +66,7 @@ public class DashboardActivity extends AppCompatActivity {
         programFab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Collections.sort(connections, Hotel.NAMECOMPARATOR);
+                Collections.sort(hotelList, Hotel.NAMECOMPARATOR);
                 menuRed.close(true);
             }
         });
@@ -78,7 +78,7 @@ public class DashboardActivity extends AppCompatActivity {
         programFab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Collections.sort(connections, Hotel.FEECOMPARATOR);
+                Collections.sort(hotelList, Hotel.FEECOMPARATOR);
                 menuRed.close(true);
             }
         });
@@ -89,8 +89,8 @@ public class DashboardActivity extends AppCompatActivity {
         linearLayoutManager.setSmoothScrollbarEnabled(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        connections = new ArrayList<>();
-        connectionAdapter = new HotelAdapter(getApplicationContext(), connections);
+        hotelList = new ArrayList<>();
+        connectionAdapter = new HotelAdapter(getApplicationContext(), hotelList);
         //Read Data
         initialize();
         readContacts();
@@ -98,12 +98,12 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void initialize() {
-        universities = new ArrayList<>();
+        hotels = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             Hotel university = new Hotel();
             university.setName("Pizza Hut " + i);
-            university.setCity("US State " + i);
-            university.setCourseFee(i + 5000.56);
+            university.setCity("Delhi " + i);
+            university.setCourseFee(i*10 + 500);
             university.setCourseId(Long.valueOf(i));
             university.setDuration(i + " years");
             university.setLocation("Address " + i);
@@ -117,12 +117,12 @@ public class DashboardActivity extends AppCompatActivity {
                 consultants.add(student);
             }
             university.setConsultants(consultants);
-            universities.add(university);
+            hotels.add(university);
         }
     }
 
     private void readContacts() {
-        connections.addAll(universities);
+        hotelList.addAll(hotels);
         connectionAdapter.notifyDataSetChanged();
     }
 
