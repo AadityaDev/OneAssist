@@ -15,19 +15,19 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.technawabs.oneassist.R;
-import com.technawabs.oneassist.modal.Student;
+import com.technawabs.oneassist.modal.Friends;
 import com.technawabs.oneassist.utils.StringUtils;
 
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
-public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ConnectionViewHolder>{
+public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ConnectionViewHolder>{
 
     private Context context;
-    private List<Student> connections;
+    private List<Friends> connections;
 
-    public StudentAdapter(@NonNull Context context, @NonNull List<Student> connections){
+    public FriendsAdapter(@NonNull Context context, @NonNull List<Friends> connections){
         this.context=context;
         this.connections=connections;
     }
@@ -40,7 +40,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.Connecti
 
     @Override
     public void onBindViewHolder(final ConnectionViewHolder holder, int position) {
-        Student connection=connections.get(position);
+        Friends connection=connections.get(position);
         if(connection!=null){
             if(StringUtils.isNotEmptyOrNull(connection.getName())){
                 holder.contactName.setText(connection.getName());

@@ -104,6 +104,7 @@ public class MobileNumberActivity extends BaseAppCompat {
                     Intent intent=new Intent(getApplicationContext(),DashboardActivity.class);
                     intent.putExtra("user",userDetails);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

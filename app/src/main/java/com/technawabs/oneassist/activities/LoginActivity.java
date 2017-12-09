@@ -32,6 +32,7 @@ import android.widget.TextView;
 
 import com.technawabs.oneassist.R;
 import com.technawabs.oneassist.modal.UserDetails;
+import com.technawabs.oneassist.preferences.UserStore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +66,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private UserStore userStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +87,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
         });
+
+        userStore=new UserStore(getApplicationContext());
+        if(userStore.isTourTaken()){
+            startActivity(new Intent(getApplicationContext(),DashboardActivity.class));
+            finish();
+        }
         mEmailView.setText("aditya@gmail.com");
         mPasswordView.setText("aditya");
 
@@ -346,6 +354,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 Intent intent=new Intent(getApplicationContext(),MobileNumberActivity.class);
                 intent.putExtra("user",userDetails);
                 startActivity(intent);
+                finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

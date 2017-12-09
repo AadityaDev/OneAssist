@@ -1,5 +1,6 @@
 package com.technawabs.oneassist.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,9 +10,11 @@ import android.view.View;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.technawabs.oneassist.R;
-import com.technawabs.oneassist.adapter.UniversityAdapter;
+import com.technawabs.oneassist.adapter.HotelAdapter;
+import com.technawabs.oneassist.modal.Friends;
 import com.technawabs.oneassist.modal.Hotel;
-import com.technawabs.oneassist.modal.Student;
+import com.technawabs.oneassist.modal.UserDetails;
+import com.technawabs.oneassist.preferences.UserStore;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,16 +24,27 @@ public class DashboardActivity extends AppCompatActivity {
 
     private List<Hotel> universities;
     private List<Hotel> connections;
-    private UniversityAdapter connectionAdapter;
+    private HotelAdapter connectionAdapter;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
     private FloatingActionMenu menuRed;
+    private UserDetails userDetails = new UserDetails();
+    private UserStore userStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        Intent i = getIntent();
+        if (i != null) {
+            userDetails = i.getParcelableExtra("user");
+            userStore = new UserStore(getApplicationContext());
+            if (userDetails != null) {
+                userStore.saveName(userDetails.getName());
+                userStore.saveEmail(userDetails.getEmail());
+            }
+        }
         menuRed = (FloatingActionMenu) findViewById(R.id.menu_red);
 //        final FloatingActionButton programFab1 = new FloatingActionButton(getApplicationContext());
 //        programFab1.setButtonSize(FloatingActionButton.SIZE_MINI);
@@ -69,36 +83,36 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        recyclerView=(RecyclerView)findViewById(R.id.universities_list);
-        linearLayoutManager=new LinearLayoutManager(getApplicationContext());
+        recyclerView = (RecyclerView) findViewById(R.id.universities_list);
+        linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         linearLayoutManager.setSmoothScrollbarEnabled(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        connections=new ArrayList<>();
-        connectionAdapter=new UniversityAdapter(getApplicationContext(),connections);
+        connections = new ArrayList<>();
+        connectionAdapter = new HotelAdapter(getApplicationContext(), connections);
         //Read Data
         initialize();
         readContacts();
         recyclerView.setAdapter(connectionAdapter);
     }
 
-    private void initialize(){
-        universities=new ArrayList<>();
-        for(int i=0;i<20;i++){
-            Hotel university=new Hotel();
-            university.setName("Pizza Hut "+i);
-            university.setCity("US State "+i);
-            university.setCourseFee(i+5000.56);
+    private void initialize() {
+        universities = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            Hotel university = new Hotel();
+            university.setName("Pizza Hut " + i);
+            university.setCity("US State " + i);
+            university.setCourseFee(i + 5000.56);
             university.setCourseId(Long.valueOf(i));
-            university.setDuration(i+" years");
-            university.setLocation("Address "+i);
+            university.setDuration(i + " years");
+            university.setLocation("Address " + i);
             university.setPictureUrl("");
-            List<Student> consultants=new ArrayList<>();
-            for(int j=0;j<10;j++){
-                Student student=new Student();
+            List<Friends> consultants = new ArrayList<>();
+            for (int j = 0; j < 10; j++) {
+                Friends student = new Friends();
                 student.setId(Long.valueOf(j));
-                student.setName("Name"+j);
+                student.setName("Name" + j);
                 student.setProfilePicture("");
                 consultants.add(student);
             }
@@ -107,7 +121,7 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
 
-    private void readContacts(){
+    private void readContacts() {
         connections.addAll(universities);
         connectionAdapter.notifyDataSetChanged();
     }

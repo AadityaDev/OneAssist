@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 
-public class Student implements Parcelable,Comparable<Student> {
+public class Friends implements Parcelable,Comparable<Friends> {
 
     private Long id;
     private String name;
@@ -16,7 +16,7 @@ public class Student implements Parcelable,Comparable<Student> {
     private boolean isConsultant;
     private String education;
 
-    public Student(){
+    public Friends(){
 
     }
 
@@ -92,7 +92,7 @@ public class Student implements Parcelable,Comparable<Student> {
         this.education = education;
     }
 
-    protected Student(Parcel in) {
+    protected Friends(Parcel in) {
         id = in.readLong();
         name = in.readString();
         profilePicture = in.readString();
@@ -104,15 +104,15 @@ public class Student implements Parcelable,Comparable<Student> {
         education = in.readString();
     }
 
-    public static final Creator<Student> CREATOR = new Creator<Student>() {
+    public static final Creator<Friends> CREATOR = new Creator<Friends>() {
         @Override
-        public Student createFromParcel(Parcel in) {
-            return new Student(in);
+        public Friends createFromParcel(Parcel in) {
+            return new Friends(in);
         }
 
         @Override
-        public Student[] newArray(int size) {
-            return new Student[size];
+        public Friends[] newArray(int size) {
+            return new Friends[size];
         }
     };
 
@@ -134,15 +134,15 @@ public class Student implements Parcelable,Comparable<Student> {
         dest.writeString(education);
     }
 
-//    public static Comparator<Student> backersComparator=new Comparator<Student>() {
+//    public static Comparator<Friends> backersComparator=new Comparator<Friends>() {
 //        @Override
-//        public int compare(Student o1, Student o2) {
+//        public int compare(Friends o1, Friends o2) {
 //            return o1.get-o2.getNumberOfBackers();
 //        }
 //    };
 
     @Override
-    public int compareTo(@NonNull Student o) {
+    public int compareTo(@NonNull Friends o) {
         return this.id.compareTo(o.getId());
     }
 }

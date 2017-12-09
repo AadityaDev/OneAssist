@@ -16,18 +16,18 @@ import com.squareup.picasso.Picasso;
 import com.technawabs.oneassist.R;
 import com.technawabs.oneassist.activities.OfferMapsActivity;
 import com.technawabs.oneassist.constants.AppConstants;
+import com.technawabs.oneassist.modal.Friends;
 import com.technawabs.oneassist.modal.Hotel;
-import com.technawabs.oneassist.modal.Student;
 import com.technawabs.oneassist.utils.StringUtils;
 
 import java.util.List;
 
-public class UniversityAdapter extends RecyclerView.Adapter<UniversityAdapter.ConnectionViewHolder>{
+public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ConnectionViewHolder>{
 
     private Context context;
     private List<Hotel> connections;
 
-    public UniversityAdapter(@NonNull Context context, @NonNull List<Hotel> connections){
+    public HotelAdapter(@NonNull Context context, @NonNull List<Hotel> connections){
         this.context=context;
         this.connections=connections;
     }
@@ -60,7 +60,7 @@ public class UniversityAdapter extends RecyclerView.Adapter<UniversityAdapter.Co
             }
             if((university.getConsultants()!=null)&&(!university.getConsultants().isEmpty())){
                 if((university.getConsultants().get(0)!=null)){
-                    Student consultant=university.getConsultants().get(0);
+                    Friends consultant=university.getConsultants().get(0);
                     if(URLUtil.isValidUrl(consultant.getProfilePicture())) {
                         Picasso.with(context).load(consultant.getProfilePicture()).into(holder.firstConsultantImage);
                     }else {
@@ -68,7 +68,7 @@ public class UniversityAdapter extends RecyclerView.Adapter<UniversityAdapter.Co
                     }
                 }
                 if((university.getConsultants().size()>=2)&&(university.getConsultants().get(1)!=null)){
-                    Student consultant=university.getConsultants().get(1);
+                    Friends consultant=university.getConsultants().get(1);
                     if(URLUtil.isValidUrl(consultant.getProfilePicture())) {
                         Picasso.with(context).load(consultant.getProfilePicture()).into(holder.secondConsultantImage);
                     }else {
@@ -76,7 +76,7 @@ public class UniversityAdapter extends RecyclerView.Adapter<UniversityAdapter.Co
                     }
                 }
                 if((university.getConsultants().size()>=3)&&(university.getConsultants().get(2)!=null)){
-                    Student consultant=university.getConsultants().get(2);
+                    Friends consultant=university.getConsultants().get(2);
                     if(URLUtil.isValidUrl(consultant.getProfilePicture())) {
                         Picasso.with(context).load(consultant.getProfilePicture()).into(holder.thirdConsultantImage);
                     }else {

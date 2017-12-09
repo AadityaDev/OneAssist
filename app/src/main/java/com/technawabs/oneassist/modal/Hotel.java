@@ -18,7 +18,7 @@ public class Hotel implements Parcelable,Comparable<Hotel> {
     private String duration;
     private Long courseId;
     private String courseName;
-    private List<Student> consultants;
+    private List<Friends> consultants;
 
     public Hotel(){
 
@@ -32,7 +32,7 @@ public class Hotel implements Parcelable,Comparable<Hotel> {
         courseFee = in.readDouble();
         duration = in.readString();
         courseName = in.readString();
-        consultants = in.createTypedArrayList(Student.CREATOR);
+        consultants = in.createTypedArrayList(Friends.CREATOR);
     }
 
     @Override
@@ -136,11 +136,11 @@ public class Hotel implements Parcelable,Comparable<Hotel> {
         this.courseName = courseName;
     }
 
-    public List<Student> getConsultants() {
+    public List<Friends> getConsultants() {
         return consultants;
     }
 
-    public void setConsultants(List<Student> consultants) {
+    public void setConsultants(List<Friends> consultants) {
         this.consultants = consultants;
     }
 
