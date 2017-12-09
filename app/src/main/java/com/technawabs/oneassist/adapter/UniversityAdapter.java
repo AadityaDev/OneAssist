@@ -16,8 +16,8 @@ import com.squareup.picasso.Picasso;
 import com.technawabs.oneassist.R;
 import com.technawabs.oneassist.activities.OfferMapsActivity;
 import com.technawabs.oneassist.constants.AppConstants;
+import com.technawabs.oneassist.modal.Hotel;
 import com.technawabs.oneassist.modal.Student;
-import com.technawabs.oneassist.modal.University;
 import com.technawabs.oneassist.utils.StringUtils;
 
 import java.util.List;
@@ -25,22 +25,22 @@ import java.util.List;
 public class UniversityAdapter extends RecyclerView.Adapter<UniversityAdapter.ConnectionViewHolder>{
 
     private Context context;
-    private List<University> connections;
+    private List<Hotel> connections;
 
-    public UniversityAdapter(@NonNull Context context, @NonNull List<University> connections){
+    public UniversityAdapter(@NonNull Context context, @NonNull List<Hotel> connections){
         this.context=context;
         this.connections=connections;
     }
 
     @Override
     public ConnectionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.univesity_card, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.hotel_card, parent, false);
         return new ConnectionViewHolder(context,view);
     }
 
     @Override
     public void onBindViewHolder(ConnectionViewHolder holder, int position) {
-        final University university=connections.get(position);
+        final Hotel university=connections.get(position);
         if(university!=null){
             if(StringUtils.isNotEmptyOrNull(university.getName())){
                 holder.collegeName.setText(university.getName());
@@ -48,11 +48,11 @@ public class UniversityAdapter extends RecyclerView.Adapter<UniversityAdapter.Co
             if(StringUtils.isNotEmptyOrNull(university.getPictureUrl())&& URLUtil.isValidUrl(university.getPictureUrl())){
                 Picasso.with(context).load(university.getPictureUrl()).into(holder.collegeImage);
             }
-            if(StringUtils.isNotEmptyOrNull(university.getCourseName())){
-                holder.courseName.setText(university.getCourseName());
-            }
+//            if(StringUtils.isNotEmptyOrNull(university.getCourseName())){
+//                holder.courseName.setText(university.getCourseName());
+//            }
             if(StringUtils.isNotEmptyOrNull(university.getDuration())){
-                holder.courseDuration.setText(university.getDuration());
+                holder.courseDuration.setText("Friends Visited");
             }
             holder.collegeFees.setText(university.getCourseFee()+"");
             if(StringUtils.isNotEmptyOrNull(university.getLocation())){

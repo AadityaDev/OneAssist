@@ -10,8 +10,8 @@ import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.technawabs.oneassist.R;
 import com.technawabs.oneassist.adapter.UniversityAdapter;
+import com.technawabs.oneassist.modal.Hotel;
 import com.technawabs.oneassist.modal.Student;
-import com.technawabs.oneassist.modal.University;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,8 +19,8 @@ import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private List<University> universities;
-    private List<University> connections;
+    private List<Hotel> universities;
+    private List<Hotel> connections;
     private UniversityAdapter connectionAdapter;
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
@@ -40,7 +40,7 @@ public class DashboardActivity extends AppCompatActivity {
 //        programFab1.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Collections.sort(connections,University.COURSECOMPARATOR);
+//                Collections.sort(connections,Hotel.COURSECOMPARATOR);
 //                menuRed.close(true);
 //            }
 //        });
@@ -52,19 +52,19 @@ public class DashboardActivity extends AppCompatActivity {
         programFab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Collections.sort(connections,University.NAMECOMPARATOR);
+                Collections.sort(connections, Hotel.NAMECOMPARATOR);
                 menuRed.close(true);
             }
         });
         final FloatingActionButton programFab3 = new FloatingActionButton(getApplicationContext());
         programFab3.setButtonSize(FloatingActionButton.SIZE_MINI);
-        programFab3.setLabelText("Fee");
+        programFab3.setLabelText("Discount");
         programFab3.setImageResource(R.mipmap.ic_launcher_round);
         menuRed.addMenuButton(programFab3);
         programFab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Collections.sort(connections,University.FEECOMPARATOR);
+                Collections.sort(connections, Hotel.FEECOMPARATOR);
                 menuRed.close(true);
             }
         });
@@ -86,12 +86,11 @@ public class DashboardActivity extends AppCompatActivity {
     private void initialize(){
         universities=new ArrayList<>();
         for(int i=0;i<20;i++){
-            University university=new University();
-            university.setName("James Hopkins Univesity "+i);
+            Hotel university=new Hotel();
+            university.setName("Pizza Hut "+i);
             university.setCity("US State "+i);
             university.setCourseFee(i+5000.56);
             university.setCourseId(Long.valueOf(i));
-            university.setCourseName("Computer Science "+i);
             university.setDuration(i+" years");
             university.setLocation("Address "+i);
             university.setPictureUrl("");
@@ -100,13 +99,7 @@ public class DashboardActivity extends AppCompatActivity {
                 Student student=new Student();
                 student.setId(Long.valueOf(j));
                 student.setName("Name"+j);
-                student.setConsultant(true);
-                student.setEducation("MS From MIT");
-                student.setNumYearsInUS(j+" years spent in US");
                 student.setProfilePicture("");
-                student.setProgram("MS");
-                student.setSchool("School "+j);
-                student.setUSRegion("US State "+j);
                 consultants.add(student);
             }
             university.setConsultants(consultants);

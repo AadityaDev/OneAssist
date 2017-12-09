@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import java.util.Comparator;
 import java.util.List;
 
-public class University implements Parcelable,Comparable<University> {
+public class Hotel implements Parcelable,Comparable<Hotel> {
 
     private Long id;
     private String name;
@@ -20,11 +20,11 @@ public class University implements Parcelable,Comparable<University> {
     private String courseName;
     private List<Student> consultants;
 
-    public University(){
+    public Hotel(){
 
     }
 
-    protected University(Parcel in) {
+    protected Hotel(Parcel in) {
         name = in.readString();
         location = in.readString();
         pictureUrl = in.readString();
@@ -52,15 +52,15 @@ public class University implements Parcelable,Comparable<University> {
         return 0;
     }
 
-    public static final Creator<University> CREATOR = new Creator<University>() {
+    public static final Creator<Hotel> CREATOR = new Creator<Hotel>() {
         @Override
-        public University createFromParcel(Parcel in) {
-            return new University(in);
+        public Hotel createFromParcel(Parcel in) {
+            return new Hotel(in);
         }
 
         @Override
-        public University[] newArray(int size) {
-            return new University[size];
+        public Hotel[] newArray(int size) {
+            return new Hotel[size];
         }
     };
 
@@ -145,27 +145,27 @@ public class University implements Parcelable,Comparable<University> {
     }
 
     @Override
-    public int compareTo(@NonNull University o) {
+    public int compareTo(@NonNull Hotel o) {
         return this.name.compareToIgnoreCase(o.getName());
     }
 
-    public static Comparator<University> NAMECOMPARATOR=new Comparator<University>() {
+    public static Comparator<Hotel> NAMECOMPARATOR=new Comparator<Hotel>() {
         @Override
-        public int compare(University o1, University o2) {
+        public int compare(Hotel o1, Hotel o2) {
             return o1.getName().compareToIgnoreCase(o2.getName());
         }
     };
 
-    public static Comparator<University> FEECOMPARATOR=new Comparator<University>() {
+    public static Comparator<Hotel> FEECOMPARATOR=new Comparator<Hotel>() {
         @Override
-        public int compare(University o1, University o2) {
+        public int compare(Hotel o1, Hotel o2) {
             return Double.compare(o1.getCourseFee(),o2.getCourseFee());
         }
     };
 
-    public static Comparator<University> COURSECOMPARATOR=new Comparator<University>() {
+    public static Comparator<Hotel> COURSECOMPARATOR=new Comparator<Hotel>() {
         @Override
-        public int compare(University o1, University o2) {
+        public int compare(Hotel o1, Hotel o2) {
             return o1.getCourseName().compareToIgnoreCase(o2.getCourseName());
         }
     };
