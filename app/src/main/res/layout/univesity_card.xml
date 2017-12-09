@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_196dp"
+    android:layout_marginEnd="@dimen/dimen_6dp"
+    android:layout_marginLeft="@dimen/dimen_6dp"
+    android:layout_marginRight="@dimen/dimen_6dp"
+    android:layout_marginStart="@dimen/dimen_6dp"
+    android:layout_marginTop="@dimen/dimen_6dp"
+    app:cardUseCompatPadding="true"
+    app:elevation="0dp"
+    card_view:cardCornerRadius="@dimen/dimen_2dp"
+    tools:ignore="contentDescription|HardcodedText">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="@dimen/dimen_8dp">
+
+            <RelativeLayout
+                android:id="@+id/top_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_2dp"
+                android:layout_marginStart="@dimen/dimen_2dp">
+
+                <ImageView
+                    android:id="@+id/college_image"
+                    android:layout_width="@dimen/dimen_80dp"
+                    android:layout_height="@dimen/dimen_80dp"
+                    android:padding="@dimen/dimen_4dp"
+                    android:src="@mipmap/ic_launcher" />
+
+                <RelativeLayout
+                    android:id="@+id/right_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_toEndOf="@+id/college_image"
+                    android:layout_toRightOf="@+id/college_image"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/college_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/course_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/college_name"
+                        android:ellipsize="end"
+                        android:gravity="start"
+                        android:maxEms="45"
+                        android:maxLines="1"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16sp" />
+
+                    <ImageView
+                        android:id="@+id/location_icon"
+                        android:layout_width="@dimen/standard_icon"
+                        android:layout_height="@dimen/standard_icon"
+                        android:layout_below="@+id/course_name"
+                        android:layout_marginTop="@dimen/dimen_2dp"
+                        android:gravity="start"
+                        android:src="@drawable/ic_location" />
+
+                    <TextView
+                        android:id="@+id/college_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/course_name"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/dimen_4dp"
+                        android:layout_toEndOf="@+id/location_icon"
+                        android:layout_toRightOf="@+id/location_icon"
+                        android:ellipsize="end"
+                        android:gravity="start|center_vertical"
+                        android:maxEms="8"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_12sp"
+                        android:maxLines="1" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/location_icon"
+                        android:layout_marginTop="@dimen/dimen_4dp"
+                        android:gravity="start"
+                        android:text="Course Fee: "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_12sp" />
+
+                    <TextView
+                        android:id="@+id/college_fee"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/textView6"
+                        android:layout_toEndOf="@+id/textView6"
+                        android:layout_toRightOf="@+id/textView6"
+                        android:maxLines="1"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_12sp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/middle_container"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_46dp"
+                android:layout_below="@+id/top_container"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:gravity="center"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp">
+
+                <TextView
+                    android:id="@+id/course_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="2 years"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16sp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="start">
+
+                    <com.aditya.gyandhan.uicomponents.RoundedImageView
+                        android:id="@+id/suggestion_3"
+                        android:layout_width="@dimen/dimen_28dp"
+                        android:layout_height="@dimen/candidate_card_image"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/candidate_card_margin"
+                        android:layout_marginStart="@dimen/dimen_2dp" />
+
+                    <TextView
+                        android:id="@+id/suggestion_3_text"
+                        android:layout_width="@dimen/candidate_card_image"
+                        android:layout_height="@dimen/candidate_card_image"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/candidate_card_margin"
+                        android:layout_marginStart="@dimen/candidate_card_margin"
+                        android:background="@drawable/circle"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:maxLength="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_16sp"
+                        android:textStyle="bold" />
+
+                    <com.aditya.gyandhan.uicomponents.RoundedImageView
+                        android:id="@+id/suggestion_2"
+                        android:layout_width="@dimen/candidate_card_image"
+                        android:layout_height="@dimen/candidate_card_image"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/candidate_card_margin"
+                        android:layout_marginStart="@dimen/candidate_card_margin"
+                        android:layout_toEndOf="@+id/suggestion_3"
+                        android:layout_toRightOf="@+id/suggestion_3" />
+
+                    <TextView
+                        android:id="@+id/suggestion_2_text"
+                        android:layout_width="@dimen/candidate_card_image"
+                        android:layout_height="@dimen/candidate_card_image"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/candidate_card_margin"
+                        android:layout_marginStart="@dimen/candidate_card_margin"
+                        android:layout_toEndOf="@+id/suggestion_3"
+                        android:layout_toRightOf="@+id/suggestion_3"
+                        android:background="@drawable/circle"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:maxLength="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_16sp"
+                        android:textStyle="bold" />
+
+                    <com.aditya.gyandhan.uicomponents.RoundedImageView
+                        android:id="@+id/suggestion_1"
+                        android:layout_width="@dimen/candidate_card_image"
+                        android:layout_height="@dimen/candidate_card_image"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/candidate_card_margin"
+                        android:layout_marginStart="@dimen/candidate_card_margin"
+                        android:layout_toEndOf="@+id/suggestion_2"
+                        android:layout_toRightOf="@+id/suggestion_2" />
+
+                    <TextView
+                        android:id="@+id/suggestion_1_text"
+                        android:layout_width="@dimen/candidate_card_image"
+                        android:layout_height="@dimen/candidate_card_image"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/candidate_card_margin"
+                        android:layout_marginStart="@dimen/candidate_card_margin"
+                        android:layout_toEndOf="@+id/suggestion_2"
+                        android:layout_toRightOf="@+id/suggestion_2"
+                        android:background="@drawable/circle"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:maxLength="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_16sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/container"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentTop="true"
+                android:background="@color/refer_gray" />
+
+            <TextView
+                android:id="@+id/booking_card"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="Book Appointment"
+                android:textColor="@color/button_green"
+                android:textSize="@dimen/text_16sp"
+                android:textStyle="bold" />
+            
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

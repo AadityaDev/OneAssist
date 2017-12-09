@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "784813552521",
+    "project_id": "oneassist-a831d"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784813552521:android:4778f20eb84b1949",
+        "android_client_info": {
+          "package_name": "com.technawabs.oneassist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784813552521-th9t2lr8jsb5m2ee9ena8go8nvfueqqn.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "784813552521-hhksocpt0osaffva1vk0mgno5tbomqrj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.technawabs.oneassist",
+            "certificate_hash": "663713ea816f858b3590fc07421b14d41b33ab01"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiSWy4OuFuzD1LWdzAiot89M96-Jpda5E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-75041527-10"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
